@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;netstandard2.0;net47;net46;net45;net4;net35</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;netstandard2.0;net47;net46;net45;net4;net35;net6</TargetFrameworks>
     <OutputPath>..\bin\$(Configuration)\</OutputPath>
     <DocumentationFile>..\bin\$(Configuration)\$(TargetFramework)\SharedMemory.xml</DocumentationFile>
   </PropertyGroup>
@@ -12,6 +12,8 @@
     <Company />
     <Authors>Justin Stenning</Authors>
     <Copyright>Copyright (c) 2020 Justin Stenning</Copyright>
+    <Deterministic>False</Deterministic>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.1'">
@@ -19,6 +21,10 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+    <DefineConstants>NETCORE;NETCORE2_0;NET40Plus</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net6'">
     <DefineConstants>NETCORE;NETCORE2_0;NET40Plus</DefineConstants>
   </PropertyGroup>
 

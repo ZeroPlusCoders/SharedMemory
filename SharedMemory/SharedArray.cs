@@ -76,8 +76,9 @@ namespace SharedMemory
         /// </summary>
         /// <param name="name">The name of the shared memory array to be created.</param>
         /// <param name="length">The number of elements to make room for within the shared memory array.</param>
-        public SharedArray(string name, int length)
-            : base(name, Marshal.SizeOf(typeof(T)) * length, true)
+        /// <param name="noLocks">Set to true to ignore locks between readers and writers - default is false</param>
+        public SharedArray(string name, int length, bool noLocks = false)
+            : base(name, Marshal.SizeOf(typeof(T)) * length, true, noLocks)
         {
             Length = length;
             _elementSize = Marshal.SizeOf(typeof(T));
@@ -89,9 +90,10 @@ namespace SharedMemory
         /// Opens an existing shared memory array with the name as specified by <paramref name="name"/>.
         /// </summary>
         /// <param name="name">The name of the shared memory array to open.</param>
+        /// <param name="noLocks">Set to true to ignore locks between readers and writers - default is false</param>
         /// <exception cref="ArgumentOutOfRangeException">If the shared memory location specified by <paramref name="name"/> does not have a <see cref="SharedBuffer.BufferSize"/> that is evenly divisible by the size of <typeparamref name="T"/>.</exception>
-        public SharedArray(string name)
-            : base(name, 0, false)
+        public SharedArray(string name, bool noLocks = false)
+            : base(name, 0, false, noLocks)
         {
             _elementSize = Marshal.SizeOf(typeof(T));
 
