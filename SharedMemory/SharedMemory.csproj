@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;netstandard2.0;net47;net46;net45;net4;net35;net6</TargetFrameworks>
+    <TargetFrameworks>net6</TargetFrameworks>
     <OutputPath>..\bin\$(Configuration)\</OutputPath>
     <DocumentationFile>..\bin\$(Configuration)\$(TargetFramework)\SharedMemory.xml</DocumentationFile>
   </PropertyGroup>
@@ -12,8 +12,33 @@
     <Company />
     <Authors>Justin Stenning</Authors>
     <Copyright>Copyright (c) 2020 Justin Stenning</Copyright>
-    <Deterministic>False</Deterministic>
+	<id>SharedMemory</id>
+	<version>2.3.2</version>
+	<title>SharedMemory</title>
+	<authors>Justin Stenning</authors>
+	<owners>Justin Stenning</owners>
+	<licenseUrl>https://github.com/spazzarama/SharedMemory/blob/master/LICENSE.md</licenseUrl>
+	<projectUrl>https://github.com/spazzarama/SharedMemory</projectUrl>
+	<requireLicenseAcceptance>true</requireLicenseAcceptance>
+	<Deterministic>False</Deterministic>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	  <copyright>Copyright (c) 2014-2020 Justin Stenning</copyright>
+	  <tags>IPC RPC memory mapped file shared data circular ring buffer</tags>
+	  <Description>The SharedMemory library provides a set of C# classes that utilise a memory-mapped file for fast low-level inter-process communication (IPC) - specifically for sharing data between processes.
+
+It features:
+ * a lock-free FIFO circular buffer
+ * a simple fixed-size generic shared memory array class
+ * a bi-directional RPC implementation (.NET 4.5+ / .NET Standard 2.0+ only)
+ * an implementation of a shared memory buffer for read/write.
+ * support for memory-mapped files in .NET 3.5/4/4.5 and .NET Standard 2.0+
+ * fast generic structure reading/writing</Description>
+	  <RepositoryUrl>https://github.com/ZeroPlusCoders/SharedMemory</RepositoryUrl>
+	  <PackageTags>IPC;RPC;memory;mapped file;shared data;circular ring buffer</PackageTags>
+	  <PackageReleaseNotes>1. Added bi-directional RPC implementation (RpcBuffer) for .NET 4.5+ / .NET Standard 2.0+
+1. Added CopyTo/ToBytes/FromBytes/ReadBytes/WriteBytes to FastStructure
+1. Added .NET Standard 2.1 build</PackageReleaseNotes>
+	  <PackageProjectUrl>https://github.com/ZeroPlusCoders/SharedMemory</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.1'">
