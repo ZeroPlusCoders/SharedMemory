@@ -1,19 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net6</TargetFrameworks>
     <OutputPath>..\bin\$(Configuration)\</OutputPath>
     <DocumentationFile>..\bin\$(Configuration)\$(TargetFramework)\SharedMemory.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Company />
     <Authors>Justin Stenning</Authors>
     <Copyright>Copyright (c) 2020 Justin Stenning</Copyright>
 	<id>SharedMemory</id>
-	<version>2.3.2</version>
+	<version>2.3.3</version>
 	<title>SharedMemory</title>
 	<authors>Justin Stenning</authors>
 	<owners>Justin Stenning</owners>
@@ -71,6 +71,14 @@ It features:
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net35'">
     <DefineConstants>NET35;NETFULL</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <WarningLevel>6</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <WarningLevel>6</WarningLevel>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
